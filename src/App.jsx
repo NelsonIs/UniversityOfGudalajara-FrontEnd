@@ -1,17 +1,20 @@
-import { StudentsList } from "./components/StudentsList";
-import { CampusList } from "./components/CampusList";
-import { MajorsList } from "./components/MajorsList";
-import { LoginForm } from "./components/LoginForm";
+import { StudentsList } from "./pages/StudentsList";
+import { CampusList } from "./pages/CampusList";
+import { MajorsList } from "./pages/MajorsList";
+import { LoginForm } from "./pages/LoginForm";
+import { Navbar } from "./components/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export function App() {
   return (
-    <main className="bg-neutral-700 h-screen">
-      <div className="container mx-auto p-10">
-        <LoginForm />
-        <StudentsList />
-        <CampusList />
-        <MajorsList />
-      </div>
-    </main>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/students" element={<StudentsList />} />
+        <Route path="/campus" element={<CampusList />} />
+        <Route path="/majors" element={<MajorsList />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

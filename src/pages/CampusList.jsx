@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { DBContext } from "../contexts/DBContext";
-import { CampusCard } from "./CampusCard";
+import { CampusCard } from "../components/CampusCard";
 
 export function CampusList() {
   const { campus } = useContext(DBContext);

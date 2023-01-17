@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { DBContext } from "../contexts/DBContext";
-import { MajorCard } from "./MajorCard";
+import { MajorCard } from "../components/MajorCard";
 
 export function MajorsList() {
   const { majors } = useContext(DBContext);

@@ -31,13 +31,14 @@ export function LoginForm() {
       })
       .then((response) => {
         setToken(response.token);
+        console.log(response.token)
       })
       .catch((error) => console.log("error", error));
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <input className=""
         placeholder="Username"
         onChange={(e) => setUsername(e.target.value)}
       />

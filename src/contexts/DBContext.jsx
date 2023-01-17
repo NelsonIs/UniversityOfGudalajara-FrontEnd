@@ -30,8 +30,7 @@ export function DBContextProvider(props) {
 
 function doFetch(url, token, setEntity) {
   var myHeaders = new Headers();
-  myHeaders.append("Authorization", token);
-  myHeaders.append("Cookie", "JSESSIONID=F663B385B8E99FC152F311508FBDDF09");
+  myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiTmVsc29uSXMiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjczOTgzOTA0LCJleHAiOjE2NzM5ODQ1MDR9.H56k71emzYDv7j_kVV7Q6yR-Fv-G3aC3yH50R9PAd3i1jkeo3UT56WdSktBbqYarDAF1mlDD_iC8TUzNl3WxHQ");
 
   var requestOptions = {
     method: "GET",
