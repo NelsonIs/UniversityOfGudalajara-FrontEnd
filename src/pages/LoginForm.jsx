@@ -1,10 +1,11 @@
 import { useState, useContext } from "react";
-import { DBContext } from "../contexts/DBContext";
+import { Navigate } from "react-router-dom";
+import { SessionContext } from "../contexts/SessionContext";
 
 export function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { setToken } = useContext(DBContext);
+  const { setToken } = useContext(SessionContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,15 +31,19 @@ export function LoginForm() {
         return response.json();
       })
       .then((response) => {
-        setToken(response.token);
-        console.log(response.token)
+        if (!response.token) {
+          return (window.location = "/");
+        }
+        localStorage.setItem("sessionToken", response.token);
+        return (window.location = "/students");
       })
       .catch((error) => console.log("error", error));
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input className=""
+      <input
+        className=""
         placeholder="Username"
         onChange={(e) => setUsername(e.target.value)}
       />

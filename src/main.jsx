@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import './index.css'
 import { App } from "./App";
-import { DBContextProvider } from "./contexts/DBContext";
+import { SessionContextProvider } from "./contexts/SessionContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <DBContextProvider>
+    <SessionContextProvider>
       <App />
-    </DBContextProvider>
+    </SessionContextProvider>
   </React.StrictMode>
 );

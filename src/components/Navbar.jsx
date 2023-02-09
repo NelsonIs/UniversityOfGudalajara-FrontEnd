@@ -1,17 +1,29 @@
-import { NavLink } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 export function Navbar() {
   return (
     <div>
       <ul>
         <li>
-          <NavLink to="/students">Students</NavLink>
+          <Link to="/students">Students</Link>
         </li>
         <li>
-          <NavLink to="/campus">Campus</NavLink>
+          <Link to="/campus">Campus</Link>
         </li>
         <li>
-          <NavLink to="/majors">Majors</NavLink>
+          <Link to="/majors">Majors</Link>
+        </li>
+        <li>
+          <Link
+            to="/"
+            onClick={() => {
+              if (localStorage.getItem("sessionToken")) {
+                localStorage.removeItem("sessionToken");
+              }
+            }}
+          >
+            Logout
+          </Link>
         </li>
       </ul>
     </div>
