@@ -1,11 +1,11 @@
 import { useState, useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext";
+import "../styles/login.css";
 
 export function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { setToken } = useContext(SessionContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,18 +41,25 @@ export function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        className=""
-        placeholder="Username"
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button>Signin</button>
-    </form>
+    <>
+      <div class="form">
+        <div class="thumbnail">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg" />
+        </div>
+        <form class="login-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button>Login</button>
+        </form>
+      </div>
+    </>
   );
 }
