@@ -15,12 +15,10 @@ export function Navbar() {
         </li>
         <li>
           <Link
-            to="/"
             onClick={() => {
-              if (localStorage.getItem("sessionToken")) {
-                localStorage.removeItem("sessionToken");
-              }
+              localStorage.removeItem("sessionToken");
             }}
+            to="/"
           >
             Logout
           </Link>
