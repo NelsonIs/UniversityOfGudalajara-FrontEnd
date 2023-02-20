@@ -1,30 +1,25 @@
-import { useContext, useState, useEffect } from "react";
-import { SessionContext } from "../contexts/SessionContext";
+import { useState, useEffect } from "react";
 import { MajorCard } from "../components/MajorCard";
 import { Navbar } from "../components/Navbar";
 
 export function MajorsList() {
   const [majors, setMajors] = useState([]);
-  const { token } = useContext(SessionContext);
 
   useEffect(() => {
     var myHeaders = new Headers();
-    myHeaders.append(
-      "Authorization",
-      localStorage.getItem("sessionToken")
-    );
+    myHeaders.append("Authorization", localStorage.getItem("sessionToken"));
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Cookie", "JSESSIONID=AED6D79AF2032336C0CFFF93DAD8F3D2");
 
     var graphql = JSON.stringify({
       query:
         "query{" +
-          "getMajors{" +
-            "msg " +
-            "entity{" +
-              "majorId name numOfSemesters area" +
-            "}" +
-          "}" +
+        "getMajors{" +
+        "msg " +
+        "entity{" +
+        "majorId name numOfSemesters area" +
+        "}" +
+        "}" +
         "}",
       variables: {},
     });

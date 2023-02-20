@@ -1,5 +1,4 @@
-import { useContext, useState, useEffect } from "react";
-import { SessionContext } from "../contexts/SessionContext";
+import { useState, useEffect } from "react";
 import { CampusCard } from "../components/CampusCard";
 import { Navbar } from "../components/Navbar";
 

@@ -1,11 +1,9 @@
-import { useContext, useState, useEffect } from "react";
-import { SessionContext } from "../contexts/SessionContext";
+import { useState, useEffect } from "react";
 import { StudentCard } from "../components/StudentCard";
 import { Navbar } from "../components/Navbar";
 
 export function StudentsList() {
   const [students, setStudents] = useState([]);
-  const { token } = useContext(SessionContext);
 
   useEffect(() => {
     var myHeaders = new Headers();

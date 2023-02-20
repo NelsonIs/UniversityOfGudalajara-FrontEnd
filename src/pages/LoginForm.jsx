@@ -1,6 +1,5 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { SessionContext } from "../contexts/SessionContext";
 import "../styles/login.css";
 
 export function LoginForm() {
@@ -17,7 +16,6 @@ export function LoginForm() {
       username,
       password,
     });
-    console.log(raw);
 
     var requestOptions = {
       method: "POST",
@@ -32,9 +30,11 @@ export function LoginForm() {
       })
       .then((response) => {
         if (!response.token) {
-          return (window.location = "/");
+          return window.location = "/";
         }
         localStorage.setItem("sessionToken", response.token);
+        localStorage.setItem("sessionUser", JSON.stringify(response.user));
+
         return (window.location = "/students");
       })
       .catch((error) => console.log("error", error));
@@ -42,11 +42,11 @@ export function LoginForm() {
 
   return (
     <>
-      <div class="form">
-        <div class="thumbnail">
+      <div className="form">
+        <div className="thumbnail">
           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg" />
         </div>
-        <form class="login-form" onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Username"
