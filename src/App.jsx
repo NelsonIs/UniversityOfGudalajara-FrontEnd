@@ -7,7 +7,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export function App() {
   return (
-    <BrowserRouter>
+    <div className="bg-slate-400">
+      <BrowserRouter>
       <Routes>
         <Route path="/*" element={<LoginForm />} />
         <Route path="/" element={<LoginForm />} />
@@ -18,5 +19,6 @@ export function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </div>
   );
 }

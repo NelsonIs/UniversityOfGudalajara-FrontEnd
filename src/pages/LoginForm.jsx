@@ -41,7 +41,6 @@ export function LoginForm() {
   };
 
   return (
-    <>
       <div className="form">
         <div className="thumbnail">
           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg" />
@@ -60,6 +59,5 @@ export function LoginForm() {
           <button>Login</button>
         </form>
       </div>
-    </>
   );
 }
